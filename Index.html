@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Foundations: Build Your Digital Confidence</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f3f0 0%, #e8e6e3 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .courses-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .course-item {
+            margin-bottom: 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+
+        .course-item:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .course-header {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #a8e6cf 0%, #88d8c0 100%);
+            transition: all 0.3s ease;
+        }
+
+        .course-header:hover {
+            background: linear-gradient(135deg, #88d8c0 0%, #7fcdcd 100%);
+        }
+
+        .course-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .expand-icon {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            transition: transform 0.3s ease;
+            font-weight: bold;
+        }
+
+        .course-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            background: #fff;
+        }
+
+        .course-content.expanded {
+            max-height: 1000px;
+        }
+
+        .course-content-inner {
+            padding: 2rem;
+        }
+
+        .course-description {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .topics-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .topics-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .topics-list li::before {
+            content: "•";
+            color: #88d8c0;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .take-home-activity {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #e17055;
+            margin-top: 1rem;
+        }
+
+        .take-home-activity h4 {
+            color: #2d3436;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .take-home-activity p {
+            color: #2d3436;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .course-item.expanded .expand-icon {
+            transform: rotate(45deg);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header {
+                padding: 1.5rem;
+            }
+
+            .courses-container {
+                padding: 1rem;
+            }
+
+            .course-header {
+                padding: 1rem;
+            }
+
+            .course-content-inner {
+                padding: 1.5rem;
+            }
+
+            .course-title {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .intro-text {
+                font-size: 1rem;
+            }
+
+            .course-title {
+                font-size: 1rem;
+                line-height: 1.3;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>AI Foundations: Build Your Digital Confidence</h1>
+            <p class="intro-text">
+                This course series is designed to help you gain real-world confidence using AI and automation tools—no tech background required. Learn how to prompt effectively, automate small tasks, and understand the ethics behind today's digital tools.
+            </p>
+        </div>
+
+        <div class="courses-container">
+            <div class="course-item">
+                <div class="course-header" onclick="toggleCourse(this)">
+                    <h3 class="course-title">Course 1: Understanding AI — What It Is & Why It Matters</h3>
+                    <span class="expand-icon">+</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-content-inner">
+                        <p class="course-description">
+                            Demystify artificial intelligence and understand how it's already part of your daily life. This foundational course breaks down complex concepts into accessible insights.
+                        </p>
+                        <ul class="topics-list">
+                            <li>What is Artificial Intelligence? (with real-life examples)</li>
+                            <li>The difference between AI, machine learning, and automation</li>
+                            <li>Why AI is showing up everywhere right now</li>
+                            <li>Myths and truths about AI (what it can and can't do)</li>
+                            <li>How AI is already impacting work, creativity, and communication</li>
+                        </ul>
+                        <div class="take-home-activity">
+                            <h4>🎒 Take-Home Activity</h4>
+                            <p>Write a short reflection (200–300 words): "How do I already interact with AI in my daily life?" Bonus: Try using ChatGPT or another AI tool to answer a question you'd normally Google.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-item">
+                <div class="course-header" onclick="toggleCourse(this)">
+                    <h3 class="course-title">Course 2: Prompting Basics — Talking to AI Effectively</h3>
+                    <span class="expand-icon">+</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-content-inner">
+                        <p class="course-description">
+                            Master the art of communicating with AI tools. Learn how to craft prompts that get you the results you want, every time.
+                        </p>
+                        <ul class="topics-list">
+                            <li>What is a "prompt" and why it matters</li>
+                            <li>The anatomy of a good prompt (role, task, context, instructions)</li>
+                            <li>Examples of strong vs. weak prompts</li>
+                            <li>Prompting for everyday tasks (writing emails, brainstorming ideas, organizing lists)</li>
+                            <li>How to fix bad AI responses (iteration & clarification)</li>
+                        </ul>
+                        <div class="take-home-activity">
+                            <h4>🎒 Take-Home Activity</h4>
+                            <p>Try 3 different tasks with ChatGPT (or another AI): 1. Write a birthday message, 2. Brainstorm 5 names for a project, 3. Summarize a long paragraph of text. Submit screenshots and note what you changed to get better results.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-item">
+                <div class="course-header" onclick="toggleCourse(this)">
+                    <h3 class="course-title">Course 3: Getting Started with Automation (Make & N8N)</h3>
+                    <span class="expand-icon">+</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-content-inner">
+                        <p class="course-description">
+                            Discover how to automate repetitive tasks and save hours of your time. Learn to use powerful, free automation tools without any coding experience.
+                        </p>
+                        <ul class="topics-list">
+                            <li>What automation is and why it saves time</li>
+                            <li>Overview of free tools: Make and N8N</li>
+                            <li>Example use cases: Automatically send reminders, organize files, post content to social media</li>
+                            <li>Anatomy of a simple automation (trigger + action)</li>
+                            <li>Knowing when to automate vs. do manually</li>
+                        </ul>
+                        <div class="take-home-activity">
+                            <h4>🎒 Take-Home Activity</h4>
+                            <p>Sign up for Make.com (or N8N cloud) and build a 2-step automation (e.g. email to Google Sheet). Share a screenshot or screen recording of your workflow.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-item">
+                <div class="course-header" onclick="toggleCourse(this)">
+                    <h3 class="course-title">Course 4: Digital Confidence — Using Tools That Make Life Easier</h3>
+                    <span class="expand-icon">+</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-content-inner">
+                        <p class="course-description">
+                            Build confidence with essential digital tools that streamline your work and personal life. Learn to evaluate and adopt new technologies with confidence.
+                        </p>
+                        <ul class="topics-list">
+                            <li>Must-have free tools for tech beginners (Canva, Notion, Trello, Loom, Google Workspace)</li>
+                            <li>Organizing your digital workspace</li>
+                            <li>How to evaluate new tools (what's worth your time?)</li>
+                            <li>How to ask for help and search for tutorials</li>
+                            <li>Protecting your data and privacy (basic security habits)</li>
+                        </ul>
+                        <div class="take-home-activity">
+                            <h4>🎒 Take-Home Activity</h4>
+                            <p>Choose one new tool and set it up for a personal or work task (e.g. plan a trip in Notion or create a to-do list in Trello). Submit a screenshot and describe how it helped.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="course-item">
+                <div class="course-header" onclick="toggleCourse(this)">
+                    <h3 class="course-title">Course 5: Responsible Tech — Ethics, Bias & Safety in AI</h3>
+                    <span class="expand-icon">+</span>
+                </div>
+                <div class="course-content">
+                    <div class="course-content-inner">
+                        <p class="course-description">
+                            Understand the ethical implications of AI and automation. Learn to use technology responsibly and create inclusive digital experiences.
+                        </p>
+                        <ul class="topics-list">
+                            <li>What is bias in AI? Examples from images, text, and voice</li>
+                            <li>How to question the accuracy of AI outputs</li>
+                            <li>Data safety 101: what not to put into a chatbot</li>
+                            <li>Ethical automation: treating other people's data with care</li>
+                            <li>How to create tech that reflects your values</li>
+                        </ul>
+                        <div class="take-home-activity">
+                            <h4>🎒 Take-Home Activity</h4>
+                            <p>Look at 3 AI-generated images or texts (yours or from the internet) and analyze: Is there any bias or missing representation? What would make the output more inclusive? Write a short reflection or record a Loom video.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleCourse(header) {
+            const courseItem = header.parentElement;
+            const content = courseItem.querySelector('.course-content');
+            const icon = header.querySelector('.expand-icon');
+            
+            // Close all other courses
+            const allCourses = document.querySelectorAll('.course-item');
+            allCourses.forEach(course => {
+                if (course !== courseItem) {
+                    course.classList.remove('expanded');
+                    course.querySelector('.course-content').classList.remove('expanded');
+                    course.querySelector('.expand-icon').textContent = '+';
+                }
+            });
+            
+            // Toggle current course
+            if (courseItem.classList.contains('expanded')) {
+                courseItem.classList.remove('expanded');
+                content.classList.remove('expanded');
+                icon.textContent = '+';
+            } else {
+                courseItem.classList.add('expanded');
+                content.classList.add('expanded');
+                icon.textContent = '+';
+            }
+        }
+
+        // Add smooth scrolling and enhanced interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add hover effects for better interactivity
+            const courseHeaders = document.querySelectorAll('.course-header');
+            courseHeaders.forEach(header => {
+                header.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(5px)';
+                });
+                
+                header.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
